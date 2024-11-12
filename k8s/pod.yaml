@@ -1,20 +1,10 @@
 apiVersion: v1
-
 kind: Pod
-
 metadata:
-
-  name: todo-pod
-
+  name: todo-app
 spec:
-
   containers:
-
   - name: todo-app
-
-    image: trainwithshubham/django-todo:latest
-
+    image: anshul14041991/todoapp
     ports:
-
     - containerPort: 8000
-
