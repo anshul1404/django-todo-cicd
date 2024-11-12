@@ -36,3 +36,35 @@ $ python manage.py runserver
 Once the server is hosted, head over to http://127.0.0.1:8000/todos for the App.
 
 Cheers and Happy Coding :)
+=======================================================
+
+For Docker Installation	-- t2.micro, 15 GB
+
+sudo apt-get update
+sudo apt-get install docker.io -y
+sudo usermod -aG docker $USER && newgrp docker
+
+docker build . -t anshul14041991/todoapp:latest
+docker run -it -p 8000:8000 b77017b9e6aa
+===========================================================
+For Minikube & Kubectl  -- t2.medium, 30 GB
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+sudo snap install kubectl --classic
+minikube start --driver=docker
+
+
+mkdir k8s2
+cd k8s2
+vim pod.yaml
+===========================================================
+https://github.com/anshul1404/django-todo-cicd
+
+docker container rm `docker container ls -a -q` -f
+docker image rm `docker image ls -q` -f
+
+kubectl expose deployment todo-deployment --type=NodePort
+kubectl port-forward svc/todo-deployment 8000:8000 --address 0.0.0.0
